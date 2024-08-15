@@ -13,3 +13,9 @@ At the start of the game, you have two action choices: GO or SHOT. Selection is 
 If you choose SHOT, you first need to specify the distance of the shot, and then one by one, specify the rooms through which the arrow will travel. Draw a map! After the first room, the player cannot see, so you will need your map to indicate the second and subsequent rooms.
 
 The game ends in victory (the word "GREAT" on a green background) if you manage to shoot the Wumpus.
+
+### Installation Instructions
+
+1. Copy the two files (`.c` and `.h`) into the `movement/watch_faces/complication` directory of your firmware.
+2. Add the line `#include "wumpus_face.h"` to the `movement/movement_faces.h` file.
+3. Compile the firmware and upload it to your watch.
