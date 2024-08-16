@@ -10,7 +10,7 @@ You can shoot arrows at the Wumpus and the bats. You have a total of five arrows
 
 At the start of the game, you have two action choices: GO or SHOT. Selection is done with the top-left button, and confirmation is with the top-right button. If you choose GO, you will then need to select one of the three rooms you can move to. Watch out for the monster and trap indicators! Check if there is anything dangerous nearby!
 
-If you choose SHOT, you first need to specify the distance of the shot, and then one by one, specify the rooms through which the arrow will travel. Draw a map! After the first room, the player cannot see, so you will need your map to indicate the second and subsequent rooms.
+If you choose SHOT, you first need to specify the distance of the shot, and then one by one, specify the rooms through which the arrow will travel. You can't see beyond the current room, so you should map out the area as you go to avoid getting lost. Pen and napkin to the rescue!
 
 The game ends in victory (the word "GREAT" on a green background) if you manage to shoot the Wumpus.
 
