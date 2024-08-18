@@ -74,7 +74,7 @@ typedef struct {
     uint8_t shots_room;
     uint8_t shots_path[WUMPUS_NUM_ARROWS];
 
-    uint8_t led;
+    uint8_t led_cnt;
 } wumpus_game_state_t;
 
 static wumpus_game_state_t _state;
@@ -300,14 +300,14 @@ static void _display_death(wumpus_hazard_type_t hazard) {
     _display_hazard(hazard);
     watch_display_string("DIED", 4);
     watch_set_led_red();
-    _state.led = 3;
+    _state.led_cnt = 3;
 }
 
 static void _display_won() {
     _display_hazard(wumpus_hazard_none);
     watch_display_string("Great", 4);
     watch_set_led_green();
-    _state.led = 3;
+    _state.led_cnt = 3;
 }
 
 static void _init_game() {
@@ -321,7 +321,7 @@ static void _init_game() {
     _state.shots_picked = 0;
     _state.shots_room = 0;
     _state.arrows = WUMPUS_NUM_ARROWS;
-    _state.led = 0;
+    _state.led_cnt = 0;
 
     _generate_hazards(_state.player_room);
 }
@@ -395,8 +395,8 @@ bool wumpus_face_loop(movement_event_t event, movement_settings_t *settings, voi
             _display_hazards();
             break;
         case EVENT_TICK:
-            if (_state.led > 0) {
-                if (_state.led == 1) {
+            if (_state.led_cnt > 0) {
+                if (_state.led_cnt == 1) {
                     watch_set_led_off();
                     _init_game();
                     _display_current_action();
@@ -405,7 +405,7 @@ bool wumpus_face_loop(movement_event_t event, movement_settings_t *settings, voi
                     return false;
                 }
 
-                _state.led--;
+                _state.led_cnt--;
             } else {
                 if (_state.current_action == wumpus_face_choosing_room) {
                     _display_selected_room();
@@ -550,7 +550,7 @@ bool wumpus_face_loop(movement_event_t event, movement_settings_t *settings, voi
             return movement_default_loop_handler(event, settings);
     }
 
-    return _state.current_action != wumpus_face_died && _state.current_action != wumpus_face_won;
+    return _state.led_cnt > 0;
 }
 
 void wumpus_face_resign(movement_settings_t *settings, void *context) {
