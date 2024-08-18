@@ -2,7 +2,7 @@
 
 ![screenshot@2x](https://github.com/user-attachments/assets/d432ff68-15f9-4654-850f-7845c071c5a7)
 
-The game begins with you appearing in a random room of the labyrinth as a dodecahedron. The room number is displayed in the top right corner. Each room is connected by tunnels to three other rooms, and you can only move or shoot through these tunnels.
+The game begins with you appearing in a random room in the labyrinth as a dodecahedron. The room number is displayed in the top right corner. Each room is connected by tunnels to three other rooms, and you can only move or shoot through these tunnels.
 
 There may be monsters and other hazards around you. If they are one move away, you can see them in the bottom right corner. If there are multiple, the letters will change. W represents the Wumpus, Bt represents a giant bat, and Pt represents a pit. The Wumpus can move through the labyrinth, but bats and pits cannot.
 
