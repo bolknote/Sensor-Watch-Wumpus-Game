@@ -550,7 +550,7 @@ bool wumpus_face_loop(movement_event_t event, movement_settings_t *settings, voi
             return movement_default_loop_handler(event, settings);
     }
 
-    return _state.led_cnt > 0;
+    return _state.led_cnt == 0;
 }
 
 void wumpus_face_resign(movement_settings_t *settings, void *context) {
