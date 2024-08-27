@@ -556,5 +556,7 @@ bool wumpus_face_loop(movement_event_t event, movement_settings_t *settings, voi
 void wumpus_face_resign(movement_settings_t *settings, void *context) {
     (void) settings;
     (void) context;
+
+    watch_set_led_off();
 }
 
