@@ -62,7 +62,7 @@ typedef struct {
     int8_t selected_room_n;
     wumpus_current_action_t current_action;
 
-    uint8_t arrows;
+    int8_t arrows;
     wumpus_hazard_type_t hazards[WUMPUS_FACE_ROWS];
     uint8_t hazard_point;
 
@@ -124,8 +124,8 @@ static void _display_room(uint8_t room) {
     watch_display_string("  ", 2);
 
     if (room < 100) {
-        char room_str[3];
-        sprintf(room_str, "%2d", room + 1);
+        char room_str[4];
+        snprintf(room_str, sizeof(room_str), "%2d", room + 1);
         watch_display_string(room_str, 2);
     }    
 }
@@ -147,7 +147,7 @@ static void _display_selected_room() {
 }
 
 static void _display_current_action() {
-    char buf[5];
+    char buf[8];
     watch_clear_colon();
 
     if (_state.action_tick_show) {
@@ -159,14 +159,14 @@ static void _display_current_action() {
 
             case wumpus_face_shoot_n:
                 _display_current_room();
-                sprintf(buf, "rn%-2d", _state.shots_path_len);
+                snprintf(buf, sizeof(buf), "rn%-2d", _state.shots_path_len);
                 watch_set_colon();
                 watch_display_string(buf, 4);
                 break;
 
             case wumpus_face_shoot_rooms:
                 _display_current_room();
-                sprintf(buf, "r%d%-2d", _state.shots_picked + 1, _state.shots_room + 1);
+                snprintf(buf, sizeof(buf), "r%d%-2d", _state.shots_picked + 1, _state.shots_room + 1);
                 watch_set_colon();
                 watch_display_string(buf, 4);
                 break;
@@ -371,6 +371,7 @@ static wumpus_current_action_t _shot() {
 void wumpus_face_setup(movement_settings_t *settings, uint8_t watch_face_index, void ** context_ptr) {
     (void) settings;
     (void) watch_face_index;
+    (void) context_ptr;
 }
 
 void wumpus_face_activate(movement_settings_t *settings, void *context) {
