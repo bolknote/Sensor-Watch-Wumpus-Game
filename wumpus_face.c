@@ -383,6 +383,7 @@ void wumpus_face_activate(movement_settings_t *settings, void *context) {
     srand((unsigned) time(&t));
 #endif    
 
+    movement_request_tick_frequency(4);
     _init_game();
 }
 
